@@ -12,21 +12,21 @@ module.exports = {
 		config.optimization.runtimeChunk('single')
 	},
 	devServer: {
-		// proxy: {
-		// 	'/api': {
-		// 		target: process.env.VUE_APP_URL, //请求后台的地址
-		// 		ws: true,
-		// 		pathRewrite: {
-		// 			'^/api': ''
-		// 		}
-		// 	}
-		// }
+		proxy: {
+			'/api': {
+				target: process.env.VUE_APP_BASE_API, //请求后台的地址
+				ws: true,
+				pathRewrite: {
+					'^/api': ''
+				}
+			}
+		},
 		//contentBase: path.join(__dirname, 'mock'),
-		// compress: true,
-		// overlay: {
-		// 	warnings: false,
-		// 	errors: true
-		// }
+		compress: true,
+		overlay: {
+			warnings: false,
+			errors: true
+		}
 		//before: require('./mock')
 	}
 }

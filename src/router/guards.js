@@ -14,8 +14,9 @@ export default function(router) {
 					next()
 				} else {
 					try {
-						const { roles } = await store.dispatch('user/_getInfo')
-						console.log(roles)
+						const { roles } = await store.dispatch('user/_getInfo', {
+							token: store.getters.token
+						})
 						const addRoutes = await store.dispatch(
 							'permission/getAsyncRoutes',
 							roles
