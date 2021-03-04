@@ -1,22 +1,248 @@
 <template>
-	<div>
-		<h3>登录页面</h3>
+	<div class="login">
+		<div class="slideShadow" v-show="showSlide">
+			<transition>
+				<div class="slideSty animated bounce">
+					<slide-verify
+						@success="onSuccess"
+						@fail="onFail"
+						:sliderText="text"
+						:w="350"
+						:h="175"
+						ref="slideDiv"
+					></slide-verify>
+					<div class="iconBtn">
+						<i class="el-icon-circle-close" @click="showSlide = false"></i>
+						<i class="el-icon-refresh" @click="refresh"></i>
+					</div>
+				</div>
+			</transition>
+		</div>
+		<div class="loginBox">
+			<div class="loginCon">
+				<div class="titleDiv">
+					<h3>Welcome, sign in to continue.</h3>
+				</div>
+				<el-form ref="loginForm" :rules="rules" :model="ruleForm">
+					<el-form-item prop="username">
+						<el-input
+							placeholder="请输入账号"
+							prefix-icon="el-icon-user"
+							v-model="ruleForm.username"
+						></el-input>
+					</el-form-item>
+					<el-form-item prop="password">
+						<el-input
+							placeholder="请输入密码"
+							prefix-icon="el-icon-lock"
+							v-model="ruleForm.password"
+							show-password
+						></el-input>
+					</el-form-item>
+					<el-button
+						type="primary"
+						class="loginBtn"
+						@click="loginYz('loginForm')"
+						>登录</el-button
+					>
+				</el-form>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
+import SlideVerify from '@/components/SlideVerify'
 export default {
-	name: '',
-	props: [''],
 	data() {
-		return {}
+		return {
+			notifyObj: null,
+			text: '向右滑动',
+			showSlide: false,
+			ruleForm: {
+				username: 'admin',
+				password: '123456'
+			},
+			rules: {
+				username: [
+					{ required: true, message: '请输入用户名', trigger: 'blur' },
+					{ min: 3, max: 15, message: '长度在3到5个字符', trigger: 'blur' }
+				],
+				password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+			}
+		}
 	},
-
-	components: {},
-
-	created() {},
-
-	methods: {}
+	mounted() {
+		this.shopTip()
+	},
+	methods: {
+		onSuccess() {
+			this.showSlide = false
+			this._login()
+		},
+		onFail() {
+			this.$message.error('验证失败')
+		},
+		refresh() {
+			this.$refs.slideDiv.reset()
+		},
+		loginYz(form) {
+			this.$refs[form].validate(valid => {
+				if (valid) {
+					this.showSlide = true
+				} else {
+					return
+				}
+			})
+		},
+		_login() {
+			this.$store
+				.dispatch('user/_login', this.ruleForm)
+				.then(res => {
+					if (!res.data.success) {
+						this.refresh()
+					} else {
+						this.$router.push(this.$route.query.redirect)
+						if (this.notifyObj) {
+							this.notifyObj.close()
+						}
+						this.notifyObj = null
+					}
+				})
+				.catch(error => {
+					this.refresh()
+					this.$message.error(error)
+				})
+		},
+		shopTip() {
+			this.notifyObj = this.$notify({
+				title: '提示',
+				message:
+					'目前有两个登陆角色，管理员和普通用户，账号分别为：admin、user,密码都为：123456',
+				duration: 0,
+				iconClass: 'el-icon-s-opportunity'
+			})
+		}
+	},
+	components: {
+		SlideVerify
+	}
 }
 </script>
-<style lang="scss" scoped></style>
+<style scoped lang="scss">
+.login {
+	height: 100%;
+	width: 100%;
+	background: url(../../../assets/login-bg.jpg) no-repeat center center;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+.loginBox {
+	height: 455px;
+	width: 550px;
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	margin-top: -287px;
+}
+.loginH2 {
+	font-size: 38px;
+	color: #fff;
+	text-align: center;
+}
+.loginCon {
+	margin-top: 30px;
+	border-radius: 0;
+	box-shadow: 0px 25px 15px -15px #d3d7e9;
+	background: #ffffff;
+	.titleDiv {
+		padding: 20px;
+		position: relative;
+		border-radius: 0;
+		text-align: center;
+		h3 {
+			position: relative;
+			font-size: 22px;
+			color: #555;
+			font-weight: initial;
+			padding-top: 23px;
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: -15px;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 35px;
+				height: 3px;
+				background-color: #409eff;
+			}
+		}
+		p {
+			font-size: 16px;
+			color: #888;
+			padding-top: 12px;
+		}
+		i {
+			font-size: 65px;
+			color: #ddd;
+			position: absolute;
+			right: 27px;
+			top: 29px;
+		}
+	}
+	.el-form {
+		padding: 25px 25px 30px 25px;
+		border-radius: 0 0 4px 4px;
+	}
+}
+.loginBtn {
+	width: 100%;
+	border-radius: 25px;
+}
+.slideShadow {
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+}
+.slideSty {
+	position: absolute;
+	width: 380px;
+	height: 311px;
+	background: #e8e8e8;
+	border: 1px solid #dcdcdc;
+	left: 50%;
+	top: 50%;
+	margin-left: -188px;
+	margin-top: -176px;
+	z-index: 99;
+	border-radius: 5px;
+}
+.iconBtn {
+	padding: 9px 0 0 19px;
+	color: #5f5f5f;
+	border-top: 1px solid #d8d8d8;
+	margin-top: 17px;
+	i {
+		font-size: 22px;
+		cursor: pointer;
+	}
+	i:last-child {
+		margin-left: 7px;
+	}
+}
+</style>
+<style>
+.slideSty .slide-verify {
+	margin: 13px auto 0 auto;
+	width: 350px !important;
+}
+.slideSty .slide-verify-slider {
+	width: 100% !important;
+}
+.slideSty .slide-verify-refresh-icon {
+	display: none;
+}
+</style>
