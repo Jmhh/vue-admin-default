@@ -61,6 +61,12 @@ const creatRouter = () => {
 	})
 }
 
+// 解决addRoute不能删除动态路由问题
+export function resetRouter() {
+	const reset = creatRouter()
+	router.matcher = reset.matcher
+}
+
 const router = creatRouter()
 guards(router)
 export default router

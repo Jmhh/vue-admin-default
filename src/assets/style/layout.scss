@@ -73,7 +73,7 @@
   .header_r {
     height: 100%;
     margin-left: 200px;
-    background-color: $white;
+    background-color: #177dff;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
     transition: all 0.3s;
   }
@@ -148,7 +148,7 @@
           top: 16px;
         }
         &:hover {
-          background-color: #f6f8f8;
+          background-color: rgba(255,255,255,.22)!important;
         }
         &:last-child {
           padding: 0 20px 0 10px;

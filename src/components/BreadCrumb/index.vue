@@ -39,3 +39,14 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss" scoped>
+.breadDiv {
+	::v-deep .el-breadcrumb__item:last-child .el-breadcrumb__inner {
+		color: #fff;
+	}
+	::v-deep .el-breadcrumb__inner {
+		color: #fff;
+	}
+}
+</style>

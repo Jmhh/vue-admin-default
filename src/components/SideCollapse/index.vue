@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .sideCollapse i {
 	font-size: 18px;
-	color: #363f44;
+	color: #fff !important;
 	cursor: pointer;
 }
 </style>

@@ -37,3 +37,11 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss" scoped>
+.userDd {
+	span.userDrop_text {
+		color: #fff;
+	}
+}
+</style>
