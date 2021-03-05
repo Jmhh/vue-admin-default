@@ -62,6 +62,5 @@ const creatRouter = () => {
 }
 
 const router = creatRouter()
-console.log(router)
 guards(router)
 export default router

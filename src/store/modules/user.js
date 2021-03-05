@@ -66,7 +66,6 @@ const actions = {
 			UserInfo(formdatas)
 				.then(res => {
 					if (res.code === 0) {
-						console.log('ddd', res)
 						const { name, roles, introduce } = res.data
 						commit('SET_ROLES', roles)
 						commit('SET_NAME', name)
