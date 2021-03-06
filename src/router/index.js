@@ -25,7 +25,7 @@ export const defaultRoutes = [
 				path: 'dashbord',
 				name: 'Dashbord',
 				component: () => import('@/views/business/dashboard'),
-				meta: { title: '首页', icon: 'el-icon-s-data' }
+				meta: { title: '首页', icon: 'el-icon-s-home' }
 			}
 		]
 	}
@@ -35,18 +35,58 @@ export const asyncRoutes = [
 	{
 		path: '/table',
 		name: 'Table',
-		redirect: '/table/index',
+		redirect: '/table/default-table',
 		component: Layout,
 		meta: {
-			title: 'Table',
-			icon: 'el-icon-table iconfont'
+			title: '表格',
+			icon: 'el-icon-s-tools'
 		},
 		children: [
 			{
-				path: 'index',
+				path: 'default-table',
 				name: 'BaseTable',
-				component: () => import('@/views/business/table'),
+				component: () => import('@/views/business/table/default'),
 				meta: { title: '普通表格' }
+			},
+			{
+				path: 'complex-table',
+				name: 'ComplexTable',
+				component: () => import('@/views/business/table/complex'),
+				meta: { title: '复杂表格' }
+			},
+			{
+				path: 'multiData-table',
+				name: 'MultiDataTable',
+				component: () => import('@/views/business/table/multiData'),
+				meta: { title: '长列表表格' }
+			}
+		]
+	},
+	{
+		path: '/chart',
+		name: 'Chart',
+		component: Layout,
+		redirect: '/chart/index',
+		children: [
+			{
+				path: 'index',
+				name: 'ChartIndex',
+				component: () => import('@/views/business/chart'),
+				meta: { title: '图表', icon: 'el-icon-s-data' }
+			}
+		]
+	},
+	{
+		path: '/form',
+		name: 'Form',
+		component: Layout,
+		redirect: '/form/index',
+		children: [
+			{
+				path: 'index',
+				name: 'FormIndex',
+				component: () => import('@/views/business/form'),
+				meta: { title: '表单', icon: 'el-icon-notebook-2' }
 			}
 		]
 	}

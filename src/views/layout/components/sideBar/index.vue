@@ -4,9 +4,6 @@
 			<el-menu
 				:default-active="activeMenu"
 				class="el-menu-vertical-demo"
-				background-color="#3a3f51"
-				text-color="#b5b6bd"
-				active-text-color="rgb(79, 148, 212)"
 				mode="vertical"
 				:collapse-transition="false"
 				:collapse="opened"

@@ -5,6 +5,7 @@ import store from './store'
 import 'element-ui/lib/theme-chalk/index.css' //elementUI样式
 import '@/assets/style/index.scss' // 全局css
 import './plugins/element.js' //elementUI组件按需引入
+import '@/init/index.js'
 
 Vue.config.productionTip = false
 
