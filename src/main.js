@@ -3,8 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import 'element-ui/lib/theme-chalk/index.css' //elementUI样式
-import '@/assets/style/index.scss' // 全局css
+import '@/assets/style/index.scss' // 全局样式
 import './plugins/element.js' //elementUI组件按需引入
+import '@/init/index.js' //初始化
 
 Vue.config.productionTip = false
 

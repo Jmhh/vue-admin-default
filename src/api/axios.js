@@ -43,7 +43,7 @@ $axios.interceptors.response.use(
 			//只返回数据，不返回其他信息
 			return res.data
 		} else {
-			const message = getErrorMsgByStatusCode(status)
+			const message = getErrorMsgByCode(status)
 			if (status === '403') {
 				router.push('/403')
 				return
@@ -77,7 +77,7 @@ $axios.interceptors.response.use(
  * 返回状态码对应的提示信息
  * @param {number} code
  */
-const getErrorMsgByStatusCode = code => {
+const getErrorMsgByCode = code => {
 	let result = '未知错误'
 	if (code >= 400 && code < 500) {
 		switch (code) {
@@ -90,11 +90,8 @@ const getErrorMsgByStatusCode = code => {
 			case 404:
 				result = '您所请求的资源不存在'
 				break
-			case 405:
-				result = ''
-				break
 			default:
-				result = `抱歉，程序出了问题(${code})`
+				result = `抱歉，程序出了问题~~`
 		}
 	} else if (code >= 500 && code < 600) {
 		result = '服务器出错啦'

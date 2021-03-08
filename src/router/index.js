@@ -11,7 +11,7 @@ export const defaultRoutes = [
 	{
 		path: '/login',
 		name: 'Login',
-		component: () => import('@/views/page/login'),
+		component: () => import(/*webpackChunkName: "login"*/ '@/views/page/login'),
 		meta: { title: '登录页' },
 		hidden: true
 	},
@@ -24,8 +24,9 @@ export const defaultRoutes = [
 			{
 				path: 'dashbord',
 				name: 'Dashbord',
-				component: () => import('@/views/business/dashboard'),
-				meta: { title: '首页', icon: 'el-icon-s-data' }
+				component: () =>
+					import(/*webpackChunkName: "login"*/ '@/views/business/dashboard'),
+				meta: { title: '首页', icon: 'el-icon-s-home' }
 			}
 		]
 	}
@@ -35,18 +36,69 @@ export const asyncRoutes = [
 	{
 		path: '/table',
 		name: 'Table',
-		redirect: '/table/index',
+		redirect: '/table/default-table',
 		component: Layout,
 		meta: {
-			title: 'Table',
-			icon: 'el-icon-table iconfont'
+			title: '表格',
+			icon: 'el-icon-s-tools'
 		},
 		children: [
 			{
-				path: 'index',
+				path: 'default-table',
 				name: 'BaseTable',
-				component: () => import('@/views/business/table'),
+				component: () =>
+					import(
+						/*webpackChunkName: "table-default"*/ '@/views/business/table/default'
+					),
 				meta: { title: '普通表格' }
+			},
+			{
+				path: 'complex-table',
+				name: 'ComplexTable',
+				component: () =>
+					import(
+						/*webpackChunkName: "table-complex"*/ '@/views/business/table/complex'
+					),
+				meta: { title: '复杂表格' }
+			},
+			{
+				path: 'multiData-table',
+				name: 'MultiDataTable',
+				component: () =>
+					import(
+						/*webpackChunkName: "table-multiData"*/ '@/views/business/table/multiData'
+					),
+				meta: { title: '长列表表格' }
+			}
+		]
+	},
+	{
+		path: '/chart',
+		name: 'Chart',
+		component: Layout,
+		redirect: '/chart/index',
+		children: [
+			{
+				path: 'index',
+				name: 'ChartIndex',
+				component: () =>
+					import(/*webpackChunkName: "chart"*/ '@/views/business/chart'),
+				meta: { title: '图表', icon: 'el-icon-s-data' }
+			}
+		]
+	},
+	{
+		path: '/form',
+		name: 'Form',
+		component: Layout,
+		redirect: '/form/index',
+		children: [
+			{
+				path: 'index',
+				name: 'FormIndex',
+				component: () =>
+					import(/*webpackChunkName: "form"*/ '@/views/business/form'),
+				meta: { title: '表单', icon: 'el-icon-notebook-2' }
 			}
 		]
 	}
@@ -61,7 +113,12 @@ const creatRouter = () => {
 	})
 }
 
+// 解决addRoute不能删除动态路由问题
+export function resetRouter() {
+	const reset = creatRouter()
+	router.matcher = reset.matcher
+}
+
 const router = creatRouter()
-console.log(router)
 guards(router)
 export default router
