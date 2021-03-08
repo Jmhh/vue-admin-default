@@ -38,3 +38,8 @@ export function debounce(func, wait, immediate) {
 		return result
 	}
 }
+
+//格式化日期
+export function formatDate(date, joinicon = '-') {
+	console.log(date, joinicon)
+}

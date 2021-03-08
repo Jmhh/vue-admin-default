@@ -11,7 +11,7 @@ export const defaultRoutes = [
 	{
 		path: '/login',
 		name: 'Login',
-		component: () => import('@/views/page/login'),
+		component: () => import(/*webpackChunkName: "login"*/ '@/views/page/login'),
 		meta: { title: '登录页' },
 		hidden: true
 	},
@@ -24,7 +24,8 @@ export const defaultRoutes = [
 			{
 				path: 'dashbord',
 				name: 'Dashbord',
-				component: () => import('@/views/business/dashboard'),
+				component: () =>
+					import(/*webpackChunkName: "login"*/ '@/views/business/dashboard'),
 				meta: { title: '首页', icon: 'el-icon-s-home' }
 			}
 		]
@@ -45,19 +46,28 @@ export const asyncRoutes = [
 			{
 				path: 'default-table',
 				name: 'BaseTable',
-				component: () => import('@/views/business/table/default'),
+				component: () =>
+					import(
+						/*webpackChunkName: "table-default"*/ '@/views/business/table/default'
+					),
 				meta: { title: '普通表格' }
 			},
 			{
 				path: 'complex-table',
 				name: 'ComplexTable',
-				component: () => import('@/views/business/table/complex'),
+				component: () =>
+					import(
+						/*webpackChunkName: "table-complex"*/ '@/views/business/table/complex'
+					),
 				meta: { title: '复杂表格' }
 			},
 			{
 				path: 'multiData-table',
 				name: 'MultiDataTable',
-				component: () => import('@/views/business/table/multiData'),
+				component: () =>
+					import(
+						/*webpackChunkName: "table-multiData"*/ '@/views/business/table/multiData'
+					),
 				meta: { title: '长列表表格' }
 			}
 		]
@@ -71,7 +81,8 @@ export const asyncRoutes = [
 			{
 				path: 'index',
 				name: 'ChartIndex',
-				component: () => import('@/views/business/chart'),
+				component: () =>
+					import(/*webpackChunkName: "chart"*/ '@/views/business/chart'),
 				meta: { title: '图表', icon: 'el-icon-s-data' }
 			}
 		]
@@ -85,7 +96,8 @@ export const asyncRoutes = [
 			{
 				path: 'index',
 				name: 'FormIndex',
-				component: () => import('@/views/business/form'),
+				component: () =>
+					import(/*webpackChunkName: "form"*/ '@/views/business/form'),
 				meta: { title: '表单', icon: 'el-icon-notebook-2' }
 			}
 		]

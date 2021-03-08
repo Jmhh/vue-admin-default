@@ -19,6 +19,7 @@
 <script>
 import { defaulTableColumn } from '../constant'
 import { getTableData } from '@/api/data'
+import { formatDate } from '@/utils'
 export default {
 	name: 'default-table',
 	props: [''],
@@ -37,6 +38,7 @@ export default {
 
 	mounted() {
 		this.pageLoad()
+		formatDate(new Date())
 	},
 
 	methods: {

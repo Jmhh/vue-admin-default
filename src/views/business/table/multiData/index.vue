@@ -30,7 +30,11 @@ export default {
 	components: {},
 
 	mounted() {
+		console.time('表格render时间：')
 		this.pageLoad()
+		this.$nextTick(() => {
+			console.timeEnd('表格render时间：')
+		})
 	},
 
 	methods: {

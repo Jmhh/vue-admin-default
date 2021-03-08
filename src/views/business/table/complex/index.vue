@@ -49,6 +49,7 @@
 <script>
 import { complexTableColumn } from '../constant'
 import { getTableData } from '@/api/data'
+import { formatDate } from '@/utils'
 export default {
 	name: 'complex-table',
 	props: [''],
@@ -66,6 +67,7 @@ export default {
 
 	mounted() {
 		this.pageLoad()
+		formatDate(new Date())
 	},
 
 	methods: {
