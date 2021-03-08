@@ -27,7 +27,6 @@
 					class="slide-verify-slider-mask-item"
 					:style="{ left: sliderLeft }"
 				>
-					<!-- <div class="slide-verify-slider-mask-item-icon"></div> -->
 					<i class="el-icon-arrow-right"></i>
 				</div>
 			</div>
@@ -162,7 +161,6 @@ export default {
 		},
 		// 随机生成img src
 		getRandomImg() {
-			// return 'https://picsum.photos/300/150/?image=' + this.getRandomNumberByRange(0, 1084);
 			return require(`@/assets/slide_images/slide-${this.getRandomNumberByRange(
 				0,
 				4
@@ -305,17 +303,6 @@ export default {
 	top: 0;
 }
 
-/* .slide-verify-refresh-icon {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  background: url('../assets/icon_light.png') 0 -437px;
-  background-size: 34px 471px;
-} */
-
 .slide-verify-slider {
 	position: relative;
 	text-align: center;
@@ -356,16 +343,6 @@ export default {
 .slide-verify-slider-mask-item:hover .slide-verify-slider-mask-item-icon {
 	background-position: 0 -13px;
 }
-
-/* .slide-verify-slider-mask-item-icon {
-  position: absolute;
-  top: 15px;
-  left: 13px;
-  width: 14px;
-  height: 12px;
-  background: url('../assets/icon_light.png') 0 -26px;
-  background-size: 34px 471px;
-} */
 .container-active .slide-verify-slider-mask-item {
 	height: 38px;
 	top: -1px;

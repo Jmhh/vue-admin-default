@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import SlideVerify from '@/components/SlideVerify'
+import SlideVerify from './SlideVerify'
 export default {
 	data() {
 		return {

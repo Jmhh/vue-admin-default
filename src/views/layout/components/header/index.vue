@@ -28,10 +28,10 @@
 </template>
 
 <script>
-import SideCollapse from '@/components/SideCollapse'
-import BreadCrumb from '@/components/BreadCrumb'
-import UserDropdown from '@/components/UserDropdown'
-import FullScreen from '@/components/FullScreen'
+import SideCollapse from './SideCollapse'
+import BreadCrumb from './BreadCrumb'
+import UserDropdown from './UserDropdown'
+import FullScreen from './FullScreen'
 export default {
 	components: {
 		SideCollapse,

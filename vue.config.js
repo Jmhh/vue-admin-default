@@ -5,12 +5,13 @@ const resolve = function(dir) {
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 module.exports = {
+	publicPath: './',
+	lintOnSave: true,
 	productionSourceMap: false, // 是否在构建生产包时生成sourcdeMap
 	chainWebpack: config => {
 		config.resolve.alias
 			.set('@', resolve('src'))
 			.set('views', resolve('src/views'))
-		//config.optimization.runtimeChunk('single')
 		//压缩图片
 		config.module
 			.rule('images')

@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import SideBar from './components/sideBar'
-import MHeader from './components/header'
-import NotificatBar from '@/components/NotificatBar'
-import PageMain from './components/main'
+import SideBar from './components/SideBar'
+import MHeader from './components/Header'
+import PageMain from './components/Main'
+import NotificatBar from './components/NotificatBar'
 import { mapGetters } from 'vuex'
 import driver from '@/mixins/useDriver'
 export default {
