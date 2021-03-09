@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import PanelGroup from './components/PanelGroup'
-import LineChart from './components/LineChart'
-import PieChart from './components/PieChart'
+const PanelGroup = () => import('./components/PanelGroup')
+const LineChart = () => import('./components/LineChart')
+const PieChart = () => import('./components/PieChart')
 
 const lineChartData = {
 	newVisitis: {

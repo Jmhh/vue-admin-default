@@ -18,6 +18,30 @@
 						<span>{{ scope.row.position }}</span>
 					</div>
 				</template>
+				<template v-slot:office="{ scope }">
+					<div v-if="scope.row.edit !== false">
+						<el-input v-model="scope.row.office"></el-input>
+					</div>
+					<div v-else>
+						<span>{{ scope.row.office }}</span>
+					</div>
+				</template>
+				<template v-slot:age="{ scope }">
+					<div v-if="scope.row.edit !== false">
+						<el-input v-model="scope.row.age"></el-input>
+					</div>
+					<div v-else>
+						<span>{{ scope.row.age }}</span>
+					</div>
+				</template>
+				<template v-slot:start-date="{ scope }">
+					<div v-if="scope.row.edit !== false">
+						<el-input v-model="scope.row['start-date']"></el-input>
+					</div>
+					<div v-else>
+						<span>{{ scope.row['start-date'] }}</span>
+					</div>
+				</template>
 				<template slot="default">
 					<el-table-column label="操作" width="200">
 						<template slot-scope="scope">
@@ -52,7 +76,6 @@ import { getTableData } from '@/api/data'
 import { formatDate } from '@/utils'
 export default {
 	name: 'complex-table',
-	props: [''],
 	data() {
 		return {
 			complexTableColumn,
@@ -62,8 +85,6 @@ export default {
 			total: 0
 		}
 	},
-
-	components: {},
 
 	mounted() {
 		this.pageLoad()
