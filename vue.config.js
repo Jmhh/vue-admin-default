@@ -12,7 +12,7 @@ module.exports = {
 		config.resolve.alias
 			.set('@', resolve('src'))
 			.set('views', resolve('src/views'))
-		//压缩图片
+		//压缩图片配置
 		config.module
 			.rule('images')
 			.use('imageWebpackLoader')

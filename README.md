@@ -16,7 +16,7 @@ cd vue-admin-default
 yarn install
 
 # 启动服务
-yarn start
+yarn dev
 ```
 ### 功能
 
