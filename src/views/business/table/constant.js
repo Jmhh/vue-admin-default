@@ -37,15 +37,18 @@ export const complexTableColumn = Object.freeze([
 	},
 	{
 		prop: 'office',
-		label: 'office'
+		label: 'office',
+		slots: true
 	},
 	{
 		prop: 'age',
-		label: 'Age'
+		label: 'Age',
+		slots: true
 	},
 	{
 		prop: 'start-date',
-		label: 'Start date'
+		label: 'Start date',
+		slots: true
 	},
 	{
 		prop: 'salary',

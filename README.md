@@ -1,4 +1,3 @@
-# vue admin
 
 ## 简介
 
@@ -17,7 +16,7 @@ cd vue-admin-default
 yarn install
 
 # 启动服务
-yarn start
+yarn dev
 ```
 ### 功能
 
@@ -37,13 +36,17 @@ yarn start
   - 管理员页面
   - 权限设置
 
-- 表格操作
-  - 涉及平常业务遇到的相关表格操作（参考）
+- 公共组件封装
+  - 以表格组件为例
 
 - Echarts
  - 滑动显示更多数据
  - 动态切换charts
 
-- Icons
- - element-icon
+- webpack&vue-cli 配置优化
+ - 路由懒加载
+ - 图片压缩
+ - 开启gzip
+ - 提取第三方依赖，分割js代码
+ - element组件按需引入
 ```

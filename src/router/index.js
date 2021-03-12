@@ -59,16 +59,7 @@ export const asyncRoutes = [
 					import(
 						/*webpackChunkName: "table-complex"*/ '@/views/business/table/complex'
 					),
-				meta: { title: '复杂表格' }
-			},
-			{
-				path: 'multiData-table',
-				name: 'MultiDataTable',
-				component: () =>
-					import(
-						/*webpackChunkName: "table-multiData"*/ '@/views/business/table/multiData'
-					),
-				meta: { title: '长列表表格' }
+				meta: { title: '编辑表格' }
 			}
 		]
 	},

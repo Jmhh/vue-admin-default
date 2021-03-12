@@ -22,7 +22,6 @@ import { getTableData } from '@/api/data'
 import { formatDate } from '@/utils'
 export default {
 	name: 'default-table',
-	props: [''],
 	data() {
 		return {
 			defaulTableColumn,
@@ -33,9 +32,6 @@ export default {
 			dataLoading: false
 		}
 	},
-
-	components: {},
-
 	mounted() {
 		this.pageLoad()
 		formatDate(new Date())
@@ -52,7 +48,6 @@ export default {
 					this.page = page
 					this.rows = rows
 					this.total = total
-					console.log(rows)
 				} else {
 					this.$message.error(res.desc)
 				}
