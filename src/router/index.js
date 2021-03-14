@@ -77,21 +77,6 @@ export const asyncRoutes = [
 				meta: { title: '图表', icon: 'el-icon-s-data' }
 			}
 		]
-	},
-	{
-		path: '/form',
-		name: 'Form',
-		component: Layout,
-		redirect: '/form/index',
-		children: [
-			{
-				path: 'index',
-				name: 'FormIndex',
-				component: () =>
-					import(/*webpackChunkName: "form"*/ '@/views/business/form'),
-				meta: { title: '表单', icon: 'el-icon-notebook-2' }
-			}
-		]
 	}
 ]
 

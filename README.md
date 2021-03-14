@@ -3,7 +3,7 @@
 
 Vue+Element+Mockjs 实现的前端中后台管理系统模板，实现了登录权限验证，动态路由生成，公共组件封装，webpack打包优化配置等功能。它可以帮你快速搭建后台管理系统模板，并根据实际的业务需求添加路由来实现企业级管理页面。
 
-### 安装
+### 使用
 
 ```
 # 克隆项目
@@ -49,4 +49,54 @@ yarn dev
  - 开启gzip
  - 提取第三方依赖，分割js代码
  - element组件按需引入
+```
+#### 文件说明
+
+```js
+.
+├── README.md
+├── package.json
+├── src
+│   ├── api
+│   │   ├── axios.js // Axios 请求统一封装
+│   │   └── data.js // 请求数据 axios 实例
+│   │   └── login.js // 登录相关 axios 实例
+│   ├── assets //静态资源
+│   ├── init //初始化项目
+│   │   ├── components.js // 全局公共组件导入
+│   ├── components // 全局公共组件文件
+│   │   ├── Table // 自定义表格组件
+│   │   │   ├── basic-table.vue
+│   ├── mixins // 公共mixins
+│   ├── plugins // 插件
+│   │   ├── element.js // element组件按需导入
+│   ├── router //路由
+│   │   ├── guards.js // 路由导航守卫
+│   │   └── index.js 
+│   ├── store  
+│   ├── utils // 工具类方法
+│   ├── App.vue 
+│   ├── main.js 
+│   └── views // 视图
+│       ├── business //业务组件模块
+│       │   ├── dashboard
+│       │   ├── table
+│       │   └── chart
+│       ├── layout //layout组件模块
+│       │   ├── components
+│       │       ├── Header //头部组件
+│       │           ├── BreadCrumb //面包屑导航
+│       │           ├── FullScreen //全屏组件
+│       │           ├── SideCollapse //侧边栏收缩组件
+│       │           └── UserDropdown //用户下拉组件
+│       │       ├── Main //主内容区域
+│       │       ├── SideBar //侧边栏导航
+│       │   └── index.vue
+│       ├── page //基础组件模块
+│       │   └── login
+│       │       ├── index.tsx
+│       │       └── intro.md
+│       │   └── error-page
+└── vue.config.js
+
 ```
