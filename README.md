@@ -63,17 +63,17 @@ yarn dev
 │   │   └── login.js // 登录相关 axios 实例
 │   ├── assets //静态资源
 │   ├── init //初始化项目
-│   │   ├── components.js // 全局公共组件导入
+│   │   └── components.js // 全局公共组件导入
 │   ├── components // 全局公共组件文件
-│   │   ├── Table // 自定义表格组件
-│   │   │   ├── basic-table.vue
+│   │   └── Table // 自定义表格组件
+│   │       └──basic-table.vue
 │   ├── mixins // 公共mixins
 │   ├── plugins // 插件
-│   │   ├── element.js // element组件按需导入
+│   │   └── element.js // element组件按需导入
 │   ├── router //路由
 │   │   ├── guards.js // 路由导航守卫
 │   │   └── index.js 
-│   ├── store  
+│   ├── store //store
 │   ├── utils // 工具类方法
 │   ├── App.vue 
 │   ├── main.js 
@@ -83,24 +83,13 @@ yarn dev
 │       │   ├── table
 │       │   └── chart
 │       ├── layout //layout组件模块
-│       ├── layout
 │       │   ├── components
 │       │   │   ├── Header
 │       │   │   ├── Main
 │       │   │   └── SideBar
-│       │   ├── components
-│       │       ├── Header //头部组件
-│       │           ├── BreadCrumb //面包屑导航
-│       │           ├── FullScreen //全屏组件
-│       │           ├── SideCollapse //侧边栏收缩组件
-│       │           └── UserDropdown //用户下拉组件
-│       │       ├── Main //主内容区域
-│       │       ├── SideBar //侧边栏导航
 │       │   └── index.vue
 │       ├── page //基础组件模块
-│       │   └── login
-│       │       ├── index.tsx
-│       │       └── intro.md
+│       │   ├── login
 │       │   └── error-page
 └── vue.config.js
 
