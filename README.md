@@ -83,6 +83,11 @@ yarn dev
 │       │   ├── table
 │       │   └── chart
 │       ├── layout //layout组件模块
+│       ├── layout
+│       │   ├── components
+│       │   │   ├── Header
+│       │   │   ├── Main
+│       │   │   └── SideBar
 │       │   ├── components
 │       │       ├── Header //头部组件
 │       │           ├── BreadCrumb //面包屑导航
