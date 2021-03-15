@@ -18,6 +18,14 @@ yarn install
 # 启动服务
 yarn dev
 ```
+#### 使用技术
+
+- **UI 框架**: `vue`、`element-ui`
+- **数据管理**：`vuex`
+- **接口请求**：`axios`
+- **语法检查**：`eslint`
+- **CSS 规则**：`sass`
+- **后端 API**：`mockjs`
 ### 功能
 
 ```
